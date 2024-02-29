@@ -1,37 +1,39 @@
 // AUMENTA FICHAS AL CLICKEAR EN BOTON
 let ficha = 0;
+let empate = 0;
+let victoria = 0;
+let derrota = 0;
 
-function fichas() {
-    ficha++;
-    document.getElementById("fichas").value = ficha;
-    document.getElementById("derrota").value = derrota = 0;
-    document.getElementById("victoria").value = derrota = 0;
-    document.getElementById("empate").value = derrota = 0;
-
-}
 // RESTAR FICHAS AL JUGAR
 function fichasMenos() {
     ficha--;
     document.getElementById("fichas").value = ficha;
 }
 // sumar victorias en el dom
-let victoria = 0
+
 function victorias() {
     victoria++;
     document.getElementById("victoria").value = victoria;
 }
 // sumar derrotas en el dom
-let derrota = 0
+
 function derrotas() {
     derrota++;
     document.getElementById("derrota").value = derrota;
 }
 // sumar empates en el dom
-let empate = 0
 
 function empates() {
     empate++;
     document.getElementById("empate").value = empate;
+}
+function fichas() {
+    ficha++;
+    document.getElementById("fichas").value = ficha;
+    document.getElementById("derrota").value = derrota = 0;
+    document.getElementById("victoria").value = victoria = 0;
+    document.getElementById("empate").value = empate = 0;
+
 }
 // BOTON RADIO DE ELECCION DE JUGADA
 let usuarioElegido
