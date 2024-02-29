@@ -1,0 +1,30 @@
+.img- {
+    border-radius: 20px;
+}
+
+.bg-img {
+    background-image: url(../img/cachipun.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    opacity: 0.7;
+}
+
+.btn-secondary {
+
+    --bs-btn-active-bg: #00663f;
+
+}
+
+body {
+    font-family: "Press Start 2P", system-ui;
+    /* font-weight: 400;
+        font-style: normal; */
+
+
+}
+
+.bg-black {
+    border-radius: 20px;
+}

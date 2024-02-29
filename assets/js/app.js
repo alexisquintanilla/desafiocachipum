@@ -1,47 +1,56 @@
+// AUMENTA FICHAS AL CLICKEAR EN BOTON
+let ficha = 0;
+
+function fichas() {
+    ficha++;
+    document.getElementById("fichas").value = ficha;
+
+}
+// RESTAR FICHAS AL JUGAR
+function fichasMenos() {
+    ficha--;
+    document.getElementById("fichas").value = ficha;
+}
+
+let usuarioElegido
+// BOTON RADIO DE ELECCION DE JUGADA
+function seleccionarRadio() {
+    var opcion1 = document.getElementById("papel");
+    var opcion2 = document.getElementById("piedra");
+    var opcion3 = document.getElementById("tijera");
+
+    if (opcion1.checked) {
+        usuarioElegido = document.getElementById("papel").value;
+    } else if (opcion2.checked) {
+        usuarioElegido = document.getElementById("piedra").value;
+    } else if (opcion3.checked) {
+        usuarioElegido = document.getElementById("tijera").value;
+    } else {
+        console.log("Ninguna opción está seleccionada.");
+    }
+    desafioMaquina();
+}
+
+
+// FUNCION DEL JUEGO
 function desafioMaquina() {
     // cantidad de jugadas
-    const jugadas = parseInt(prompt("¿Cuántas veces quieres jugar?"));
+    if (ficha >= 1) {
 
-    for (let i = 0; i < jugadas; i++) {
-        // eleccion del usuario
-        const usuario = prompt(`
-        Escribe el numero de tu jugada :
-         1. Papel 🖐️
-         2. Piedra 🪨
-         3. Tijera ✂️
-        `);
 
         // como genera random la maquina su jugada
         const maquina = Math.floor(Math.random() * 3);
 
-        // transformacion de numeros a letras
-
-        let usuarioElegido = "";
-        switch (usuario) {
-            case "1":
-                usuarioElegido = "Papel 🖐️";
-                break
-            case "2":
-                usuarioElegido = "Piedra 🪨";
-                break
-            case "3":
-                usuarioElegido = "Tijera ✂️";
-                break
-            default:
-                console.log("Elegiste una opción Invalida")
-                return;
-        }
-
         let maquinaElegido = "";
         switch (maquina) {
             case 0:
-                maquinaElegido = "Papel 🖐️";
+                maquinaElegido = "Papel";
                 break
             case 1:
-                maquinaElegido = "Piedra 🪨";
+                maquinaElegido = "Piedra";
                 break
             case 2:
-                maquinaElegido = "Tijera ✂️";
+                maquinaElegido = "Tijera";
                 break
             default:
 
@@ -51,18 +60,35 @@ function desafioMaquina() {
         let resultado = "";
         if (usuarioElegido === maquinaElegido) {
             resultado = "Han empatado piensas tan genial como la maquina! 🤔🤔";
-        } else if ((usuarioElegido === "Tijera ✂️" && maquinaElegido === "Papel 🖐️") || (usuarioElegido === "Piedra 🪨" && maquinaElegido === "Tijera ✂️") || (usuarioElegido === "Papel 🖐️" && maquinaElegido === "Piedra 🪨")) {
+            document.getElementById("img").src = "./assets/img/empate.gif"
+        } else if ((usuarioElegido === "Tijera" && maquinaElegido === "Papel") || (usuarioElegido === "Piedra" && maquinaElegido === "Tijera") || (usuarioElegido === "Papel" && maquinaElegido === "Piedra")) {
             resultado = "Eres mejor de lo que pensaba has ganado! 😎";
+            document.getElementById("resultado").style.cssText = 'color: green;';
+            document.getElementById("img").src = "./assets/img/ganar.gif"
         } else {
             resultado = "La maquina ha sido más hábil que tú Perdiste 🥹😭😿";
+            document.getElementById("resultado").style.cssText = 'color: red;';
+            document.getElementById("img").src = "./assets/img/perder.gif"
         }
 
-        console.log(`Elegiste: "${usuarioElegido}" y la Maquina "${maquinaElegido}"`);
-        console.log(resultado);
 
 
+        document.getElementById("seleccionDeAmbos").innerHTML = `Elegiste: "${usuarioElegido}" y la Maquina "${maquinaElegido}"`;
+
+        document.getElementById("resultado").innerHTML = resultado;
+
+
+        fichasMenos();
+
+
+        // }
+    } else {
+        document.getElementById("seleccionDeAmbos").innerHTML = "";
+        document.getElementById("resultado").innerHTML = "";
+        document.getElementById("img").src = "./assets/img/insertaficha.gif"
 
     }
+
+
 }
 
-desafioMaquina();
