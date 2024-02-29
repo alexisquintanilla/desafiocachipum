@@ -4,6 +4,9 @@ let ficha = 0;
 function fichas() {
     ficha++;
     document.getElementById("fichas").value = ficha;
+    document.getElementById("derrota").value = derrota = 0;
+    document.getElementById("victoria").value = derrota = 0;
+    document.getElementById("empate").value = derrota = 0;
 
 }
 // RESTAR FICHAS AL JUGAR
@@ -11,9 +14,27 @@ function fichasMenos() {
     ficha--;
     document.getElementById("fichas").value = ficha;
 }
+// sumar victorias en el dom
+let victoria = 0
+function victorias() {
+    victoria++;
+    document.getElementById("victoria").value = victoria;
+}
+// sumar derrotas en el dom
+let derrota = 0
+function derrotas() {
+    derrota++;
+    document.getElementById("derrota").value = derrota;
+}
+// sumar empates en el dom
+let empate = 0
 
-let usuarioElegido
+function empates() {
+    empate++;
+    document.getElementById("empate").value = empate;
+}
 // BOTON RADIO DE ELECCION DE JUGADA
+let usuarioElegido
 function seleccionarRadio() {
     var opcion1 = document.getElementById("papel");
     var opcion2 = document.getElementById("piedra");
@@ -31,12 +52,10 @@ function seleccionarRadio() {
     desafioMaquina();
 }
 
-
 // FUNCION DEL JUEGO
 function desafioMaquina() {
     // cantidad de jugadas
     if (ficha >= 1) {
-
 
         // como genera random la maquina su jugada
         const maquina = Math.floor(Math.random() * 3);
@@ -61,34 +80,28 @@ function desafioMaquina() {
         if (usuarioElegido === maquinaElegido) {
             resultado = "Han empatado piensas tan genial como la maquina! 🤔🤔";
             document.getElementById("img").src = "./assets/img/empate.gif"
+            document.getElementById("resultado").style.cssText = 'color: yellow;';
+            empates()
         } else if ((usuarioElegido === "Tijera" && maquinaElegido === "Papel") || (usuarioElegido === "Piedra" && maquinaElegido === "Tijera") || (usuarioElegido === "Papel" && maquinaElegido === "Piedra")) {
             resultado = "Eres mejor de lo que pensaba has ganado! 😎";
             document.getElementById("resultado").style.cssText = 'color: green;';
             document.getElementById("img").src = "./assets/img/ganar.gif"
+            victorias()
         } else {
             resultado = "La maquina ha sido más hábil que tú Perdiste 🥹😭😿";
             document.getElementById("resultado").style.cssText = 'color: red;';
             document.getElementById("img").src = "./assets/img/perder.gif"
+            derrotas()
         }
 
-
-
         document.getElementById("seleccionDeAmbos").innerHTML = `Elegiste: "${usuarioElegido}" y la Maquina "${maquinaElegido}"`;
-
         document.getElementById("resultado").innerHTML = resultado;
-
-
         fichasMenos();
 
-
-        // }
     } else {
         document.getElementById("seleccionDeAmbos").innerHTML = "";
         document.getElementById("resultado").innerHTML = "";
         document.getElementById("img").src = "./assets/img/insertaficha.gif"
-
     }
-
-
 }
 

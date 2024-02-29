@@ -31,31 +31,48 @@
                     <button class="btn btn-danger btn-lg" onclick="fichas()">Ingresar Ficha</button>
                 </div>
                 <div class="my-4 text-center">
-                    <label class="badge text-bg-primary text-wrap text-uppercase fs-6">Cantidad de fichas</label>
-                    <input class="btn btn-secondary fs-3 text-white w-25" id="fichas" type="number">
+                    <label class="badge text-bg-dark btn-dark text-wrap text-uppercase fs-5 p-3">Cantidad de
+                        fichas</label>
+                    <input class="btn btn-secondary fs-4 text-white w-25" id="fichas" type="number">
                 </div>
                 <div class="my-4">
                     <div class="text-center">
-                        <h3 class="mb-3 text-center">Selecciona tu jugada</h3>
+                        <div class="mb-4">
+
+                            <img src="./assets/img/text.gif" class="img-jugada" alt="">
+                        </div>
                         <div class="text-center">
                             <input id="papel" type="radio" name="eleccion" value="Papel" class="btn-check"
                                 autocomplete="off" checked>
-                            <label class="text-white ms-1 btn btn-secondary" for="papel">Papel</label>
+                            <label class="text-white ms-1 btn btn-secondary my-3" for="papel">Papel</label>
 
 
                             <input id="piedra" type="radio" name="eleccion" value="Piedra" class="btn-check"
                                 autocomplete="off">
-                            <label class="text-white ms-1 btn btn-secondary" for="piedra">Piedra</label>
+                            <label class="text-white ms-1 btn btn-secondary my-3" for="piedra">Piedra</label>
 
 
                             <input id="tijera" type="radio" name="eleccion" value="Tijera" class="btn-check"
                                 autocomplete="off">
-                            <label class="text-white ms-1 btn btn-secondary" for="tijera">Tijera</label>
+                            <label class="text-white ms-1 btn btn-secondary my-3" for="tijera">Tijera</label>
                         </div>
 
 
                         <div class="my-4 ">
-                            <button class="btn btn-primary w-100" onclick="seleccionarRadio()">Jugar</button>
+                            <button class="btn btn-primary w-100 fs-3" onclick="seleccionarRadio()">Jugar</button>
+                        </div>
+
+                        <div class="my-3">
+                            <label class="btn btn-success text-uppercase fs-5">Victorias</label>
+                            <input class="btn btn-secondary fs-5 text-white w-25 " id="victoria" type="number">
+                        </div>
+                        <div class="my-3">
+                            <label class="btn btn-danger text-uppercase fs-5">Derrotas</label>
+                            <input class="btn btn-secondary fs-5 text-white w-25" id="derrota" type="number">
+                        </div>
+                        <div class="my-3">
+                            <label class="btn btn-warning text-uppercase fs-5">Empates</label>
+                            <input class="btn btn-secondary fs-5 text-white w-25" id="empate" type="number">
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,7 @@
+body {
+    font-family: "Press Start 2P", system-ui;
+}
+
 .img- {
     border-radius: 20px;
 }
@@ -12,19 +16,18 @@
 }
 
 .btn-secondary {
-
     --bs-btn-active-bg: #00663f;
-
 }
 
-body {
-    font-family: "Press Start 2P", system-ui;
-    /* font-weight: 400;
-        font-style: normal; */
-
-
-}
 
 .bg-black {
     border-radius: 20px;
+}
+
+.img-jugada {
+    width: 80%;
+}
+
+#seleccionDeAmbos {
+    margin-top: 2rem;
 }
